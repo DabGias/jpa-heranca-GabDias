@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "tb_pessoa")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "tp_pessoa")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Pessoa {
     @Id
     @GeneratedValue(

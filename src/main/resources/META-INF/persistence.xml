@@ -15,7 +15,7 @@
         </properties>
     </persistence-unit>
 
-    <persistence-unit name="maria-db-teste" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="teste-maria-db" transaction-type="RESOURCE_LOCAL">
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url"

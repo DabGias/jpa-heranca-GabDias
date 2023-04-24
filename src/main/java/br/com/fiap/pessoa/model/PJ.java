@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "tb_pj")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorValue("PJ")
+@DiscriminatorValue("pj")
 public class PJ extends Pessoa {
     @Column(name = "cnpj")
     private String CNPJ;
