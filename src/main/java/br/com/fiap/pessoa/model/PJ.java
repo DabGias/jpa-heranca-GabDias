@@ -1,5 +1,6 @@
 package br.com.fiap.pessoa.model;
 
+import br.com.fiap.endereco.model.Endereco;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -15,14 +16,14 @@ public class PJ extends Pessoa {
 
     public PJ() {}
 
-    public PJ(Long id, String nome, LocalDate nascimento, String CNPJ, String inscricaoEstadual) {
-        super(id, nome, nascimento);
+    public PJ(Long id, String nome, LocalDate nascimento, Endereco endereco, String CNPJ, String inscricaoEstadual) {
+        super(id, nome, nascimento, endereco);
         this.CNPJ = CNPJ;
         InscricaoEstadual = inscricaoEstadual;
     }
 
-    public PJ(String nome, LocalDate nascimento, String CNPJ, String inscricaoEstadual) {
-        super(nome, nascimento);
+    public PJ(String nome, LocalDate nascimento, Endereco endereco, String CNPJ, String inscricaoEstadual) {
+        super(nome, nascimento, endereco);
         this.CNPJ = CNPJ;
         InscricaoEstadual = inscricaoEstadual;
     }
@@ -45,9 +46,9 @@ public class PJ extends Pessoa {
 
     @Override
     public String toString() {
-        return "PJ {" +
-                " CNPJ = '" + CNPJ + '\'' +
-                ", InscricaoEstadual = '" + InscricaoEstadual + '\'' +
-                " } " + super.toString();
+        return "PJ{" +
+                "CNPJ='" + CNPJ + '\'' +
+                ", InscricaoEstadual='" + InscricaoEstadual + '\'' +
+                "} " + super.toString();
     }
 }
