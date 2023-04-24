@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@DiscriminatorValue("pf")
+@Table(name = "tb_pf")
 public class PF extends Pessoa {
     @Column(name = "cpf")
     private String CPF;

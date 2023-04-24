@@ -5,7 +5,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "tb_pessoa")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoa {
     @Id
     @GeneratedValue(
