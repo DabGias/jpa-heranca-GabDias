@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@DiscriminatorValue("CP")
+@Table(name = "tb_conta_poupanca")
 public class ContaPoupanca extends Conta {
     @Column(name = "aniversario_conta_poupanca")
     private int aniversario;

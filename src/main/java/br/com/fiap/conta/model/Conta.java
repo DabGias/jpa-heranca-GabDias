@@ -6,9 +6,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "tb_conta")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tp_conta")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Conta {
     @Id
     @GeneratedValue(
