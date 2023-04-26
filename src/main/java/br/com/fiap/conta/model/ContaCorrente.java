@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "tb_conta_corrente")
 @DiscriminatorValue("CC")
 public class ContaCorrente extends Conta {
     @Column(name = "limite_conta_corrente")

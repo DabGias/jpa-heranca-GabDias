@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_conta")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tp_conta")
 public abstract class Conta {
     @Id
