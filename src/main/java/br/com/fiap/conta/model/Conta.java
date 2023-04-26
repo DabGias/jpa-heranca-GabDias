@@ -1,14 +1,64 @@
 package br.com.fiap.conta.model;
 
 import br.com.fiap.pessoa.model.Pessoa;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "tb_conta")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tp_conta")
 public abstract class Conta {
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "seq_conta"
+    )
+    @SequenceGenerator(
+            name = "seq_conta",
+            sequenceName = "seq_conta",
+            allocationSize = 1
+    )
+    @Column(name = "id_conta")
     private Long id;
+
+    @Column(name = "numero_conta")
     private int numero;
+
+    @Column(name = "saldo_conta")
     private BigDecimal saldo;
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinColumn(
+            name = "id_pessoa",
+            referencedColumnName = "id_pessoa",
+            foreignKey = @ForeignKey(
+                    name = "fk_pessoa_conta"
+            )
+    )
     private Pessoa titular;
+
+    @ManyToOne(
+            fetch = FetchType.EAGER,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinColumn(
+            name = "id_agencia",
+            referencedColumnName = "id_agencia",
+            foreignKey = @ForeignKey(
+                    name = "fk_tb_agencia"
+            )
+    )
     private Agencia agencia;
 
     public Conta() {}

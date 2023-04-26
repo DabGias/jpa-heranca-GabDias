@@ -1,11 +1,18 @@
 package br.com.fiap.conta.model;
 
 import br.com.fiap.pessoa.model.Pessoa;
+import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
-import java.time.DayOfWeek;
 
+@Entity
+@Table(name = "tb_conta_poupanca")
+@DiscriminatorValue("CP")
 public class ContaPoupanca extends Conta {
+    @Column(name = "aniversario_conta_poupanca")
     private int aniversario;
 
     public ContaPoupanca() {}
