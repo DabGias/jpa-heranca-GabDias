@@ -2,12 +2,14 @@ package br.com.fiap;
 
 import br.com.fiap.pessoa.model.PF;
 import br.com.fiap.pessoa.model.PJ;
+import br.com.fiap.pessoa.model.Pessoa;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     final static EntityManagerFactory FACTORY = Persistence.createEntityManagerFactory("maria-db");
@@ -27,7 +29,8 @@ public class Main {
         pj.setInscricaoEstadual("12345678910");
 
         MANAGER.getTransaction().begin();
-        Arrays.asList(pf, pj).forEach(MANAGER::persist);
+        List<Pessoa> pessoas = Arrays.asList(pf, pj);
+        pessoas.forEach(MANAGER::persist);
         MANAGER.getTransaction().commit();
 
         MANAGER.close();

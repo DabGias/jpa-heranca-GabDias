@@ -2,6 +2,8 @@ package br.com.fiap.endereco.model;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "tb_estado")
 public class Estado {
     @Id
     @GeneratedValue(
